@@ -1,0 +1,67 @@
+<br><br><br><br>
+
+<script id="groups-template" type="x-handlebars-template">
+	{{#each arr}}​ 
+	<li>{{this}} </li>​ 
+	{{/each}} ​
+</script>
+
+<script type="text/javascript">
+
+	var groupsInfo = document.getElementById("groups-template").innerHTML;
+	var template = Handlebars.compile(groupsInfo);
+	var arr = user.groupinfo.groups;
+	var groupData = template({
+		
+	});
+
+	document.getElementById('groupData').innerHTML += groupData;
+
+	function div_show() {
+		document.getElementById('abc').style.display = "block";
+	}
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+			<div class="list-group ">
+				<a href="/profile" class="list-group-item list-group-item-action">Dashboard</a>
+				<a href="#" class="list-group-item list-group-item-action active">Groups</a>
+				<a href="/search" class="list-group-item list-group-item-action">Search for Groups</a>
+			</div> 
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Your Groups</h4>
+							<hr><br><br><br><br>
+							<h5>
+								{{user.groups}}
+							</h5>
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="alert alert-error">
+		<strong>Error: </strong> You do not have permission to perform that action. 
+		<a href="/groups" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	</div>
+</div>
+
+
+<form name = "creategroup" action = "/creategroup">
+	<button style="transform: scale(2.0); display: inline-block;
+	position: absolute;top: 20%;left: 35%; margin: auto" class="btn btn-success">Create a Group</button>
+</form>
+<form name = "joingroup" action = "/joingroup">
+	<button style="transform: scale(2.0); display: inline-block;
+	position: absolute;top: 20%;left: 55%; margin: auto" class="btn btn-info">Join a Group</button>
+</form>

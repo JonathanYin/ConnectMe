@@ -1,0 +1,113 @@
+<br><br><br><br>
+
+<script>
+	// if (result.length){
+	// 	document.getElementById('myFirstname').innerHTML=result[0];
+	// }
+	function listCookies() {
+		var theCookies = document.cookie.split(';');
+		var aString = '';
+		for (var i = 1 ; i <= theCookies.length; i++) {
+			aString += i + ' ' + theCookies[i-1] + "\n";
+		}
+		return aString;
+	}
+
+	function getCookie(name) {
+		var value = "; " + document.cookie;
+		var parts = value.split("; " + name + "=");
+		if (parts.length == 2) return parts.pop().split(";").shift();
+	}
+
+	function confirmation(){
+		confirm("Are you sure you want to delete your account?");
+	}
+	function confirmDelete()
+	{
+		var x = confirm("Are you sure you want to delete?");
+		if (x)
+			window.location.href= "/deleteaccount";
+		else
+			window.location.href= "/profile";
+	}
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+			<div class="list-group ">
+				<a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+				<a href="/groups" class="list-group-item list-group-item-action">Groups</a>
+				<a href="/search" class="list-group-item list-group-item-action">Search for Groups</a>
+				<a href="/searchuser" class="list-group-item list-group-item-action">Search for Users</a>
+			</div> 
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Your Profile</h4>
+							<hr>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<form action='/updateprofile' method='post'>
+								<div class="form-group row">
+									<label for="name" class="col-4 col-form-label">First Name</label> 
+									<div class="col-8">
+										<input id="myFirstname" name="firstname" value ="{{user.firstname}}" class="form-control here" type="text">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="lastname" class="col-4 col-form-label">Last Name</label> 
+									<div class="col-8">
+										<input id="myLastname" name="lastname" value ="{{user.lastname}}" class="form-control here" type="text">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="email" class="col-4 col-form-label">Email</label> 
+									<div class="col-8">
+										<input id="myEmail" name="email" value ="{{user.email}}" class="form-control here" required="required" type="text">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="bio" class="col-4 col-form-label">Biography</label> 
+									<div class="col-8">
+										<input id="myBio" name="bio" value ="{{user.bio}}" word-break: break-word; class="form-control here" type = "text" size = "100">
+										<!-- <textarea class="input" value = "{{user.email}}" name = "email" rows="10" cols="10"></textarea> -->
+									</div>
+								</div>
+								<div class="form-group row">
+									<label for="newpass" class="col-4 col-form-label">Password</label> 
+									<div class="col-8">
+										<input id="newpass" name="newpass" value ="{{user.password}}" class="form-control here" type="text">
+									</div>
+								</div> 
+								<div class="form-group row">
+									<div class="offset-4 col-8">
+										
+										<button type='submit' name="submit" class="btn btn-primary">Update My Profile</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<form action = "/logout">
+							<button name="logout" class="btn btn-warning">Logout</button>
+						</form>
+						<br>
+						<form action = "/deleteaccount" >
+							<button name="deleteaccount" class="btn btn-danger" onclick="confirmation();">Delete Account</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<span id="myId"><span>

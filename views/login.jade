@@ -1,0 +1,16 @@
+extends layout
+block content
+  h3= title
+  form#form_add_student(name="login", method="post", action="/checklogin")
+    span Email
+    span &nbsp;
+    input#input_name(type="text", placeholder="Email", name="email")
+    br
+    br
+    span Password
+    span &nbsp;
+    input#input_street(type="text", placeholder="password", name="password")
+    br
+    br
+    button#submit_student(type="submit") submit
+

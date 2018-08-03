@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Set the page to the width of the device and set the zoom level -->
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="registercss">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script>
+
+	function checkForm(form)
+	{
+		if(form.firstname.value == "") {
+			alert("Error: First name cannot be blank!");
+			form.firstname.focus();
+			return false;
+		}
+		re = /^[A-Za-z]+$/;
+		if(!re.test(form.firstname.value)) {
+			alert("Error: First name must contain only alphabetical characters!");
+			form.firstname.focus();
+			return false;
+		}
+
+		if(form.lastname.value == "") {
+			alert("Error: Last name cannot be blank!");
+			form.lastname.focus();
+			return false;
+		}
+		re = /^[A-Za-z]+$/;
+		if(!re.test(form.lastname.value)) {
+			alert("Error: Last name must contain only alphabetical characters!");
+			form.lastname.focus();
+			return false;
+		}
+
+		var emailID = form.email.value;
+		atpos = emailID.indexOf("@");
+		dotpost = emailID.lastIndexOf(".");
+		if (atpos < 1 || (dotpost - atpos < 2)){
+			alert("Please enter a correct email address!");
+			form.email.focus();
+			return false;
+		}
+        //return true;
+
+        if(form.password.value == "") {
+        	alert("Error: Password cannot be blank!");
+        	form.password.focus();
+        	return false;
+        }
+        
+        // re = /^([1-9]|[12]\d|3[0-1])$/;
+        // if(!re.test(form.Password.value)) {
+        //   alert("Error: Password must be at least 8 characters!");
+        //   form.Day.focus();
+        //   return false;
+        // }
+
+        else {
+          //location.href='about.html'
+          //window.open("about.html", "_self");
+          window.open("/profile");
+          //window.location.replace("about.html");
+          return true;
+      }
+  }
+</script>

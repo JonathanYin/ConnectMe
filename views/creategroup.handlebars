@@ -1,0 +1,57 @@
+<br><br><br><br>
+
+<script id="groups-template" type="x-handlebars-template">
+	{{#each arr}}​ 
+	<li>{{this}} </li>​ 
+	{{/each}} ​
+</script>
+
+<script type="text/javascript">
+
+	var groupsInfo = document.getElementById("groups-template").innerHTML;
+	var template = Handlebars.compile(groupsInfo);
+	var arr = user.groupinfo.groups;
+	var groupData = template({
+		
+	});
+
+	document.getElementById('groupData').innerHTML += groupData;
+
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+			<div class="list-group ">
+				<a href="/profile" class="list-group-item list-group-item-action">Dashboard</a>
+				<a href="#" class="list-group-item list-group-item-action active">Groups</a>
+				<a href="/search" class="list-group-item list-group-item-action">Search for Groups</a>
+				<a href="/searchuser" class="list-group-item list-group-item-action">Search for Users</a>
+			</div> 
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Create Group</h4>
+							<hr>
+							<form name = "creategroup" action = "/creategroup2">
+								<label for="name">Group Name</label><input type="text" class="form-control" id = "name" name="name">
+								<br>
+								<label for="password">Password</label><input type="password" class="form-control" id = "password" name="password" minlength="8">
+								<br>
+								<button type = "submit" class="btn btn-info">Create</button>
+							</form>
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+

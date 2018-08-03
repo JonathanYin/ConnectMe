@@ -1,0 +1,58 @@
+<br><br><br><br>
+
+<script id="groups-template" type="x-handlebars-template">
+	{{#each data}}
+	{
+		name: '{{name}}',
+		members: '{{members}}'
+	}
+	{{/each}}
+</script>
+<script type="text/javascript">
+
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 ">
+			<div class="list-group ">
+				<a href="/profile" class="list-group-item list-group-item-action">Dashboard</a>
+				<a href="/groups" class="list-group-item list-group-item-action">Groups</a>
+				<a href="/search" class="list-group-item list-group-item-action">Search for Groups</a>
+				<a href="#" class="list-group-item list-group-item-action active">Search for Users</a>
+			</div> 
+		</div>
+		<div class="col-md-9">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Search for Users</h4>
+							<hr>
+							<form name = "searchuser" action = "/searchuser2" method = "post">
+								<label for="email">User Email</label><input type="name" class="form-control" id = "email" name="email">
+								<br>
+								<button type = "submit" class="btn btn-info">Search</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<table>
+				<tbody>
+					{{#each data}}
+					<tr><td><strong>{{email}}</strong></td></tr>
+					<tr><td>First Name: {{firstname}}</td></tr>
+					<tr><td>Last Name: {{lastname}}</td></tr>
+					<tr><td>Biography: {{bio}}</td></tr>
+					{{/each}}
+				</tbody>
+			</table>
+
+
+		</div>
+		
+	</div>
+	
+</div>

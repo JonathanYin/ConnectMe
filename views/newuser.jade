@@ -1,0 +1,31 @@
+extends layout
+block content
+  h3= title
+  form#form_add_user(name="adduser", method="post", action="/adduser")
+    span Firstname
+    span &nbsp;
+    input#input_name(type="text", placeholder="firstname", name="firstname")
+    br
+    br
+    span Lastname
+    span &nbsp;
+    input#input_street(type="text", placeholder="lastname", name="lastname")
+    br
+    br
+    span Password
+    span &nbsp;
+    input#input_city(type="text", placeholder="password", name="password")
+    br
+    br
+    span Email
+    span &nbsp;
+    input#input_state(type="text", placeholder="email", name="email")
+    br
+    br
+    span Bio
+    span &nbsp;
+    input#input_sex(type="text", placeholder="bio", name="bio")
+    br
+    br
+    
+    button#submit_user(type="submit") submit
